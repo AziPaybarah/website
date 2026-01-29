@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,7 +29,6 @@
             overflow-x: hidden;
         }
 
-        /* Woodblock texture overlay */
         body::before {
             content: '';
             position: fixed;
@@ -59,7 +57,6 @@
             z-index: 2;
         }
 
-        /* Header with woodblock border */
         header {
             padding: 3rem 0 2rem;
             border-bottom: 4px solid var(--woodblock-dark);
@@ -114,7 +111,6 @@
             letter-spacing: 0.03em;
         }
 
-        /* Hero Section */
         .hero {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -149,11 +145,22 @@
             color: var(--woodblock-dark);
         }
 
-        <div class="profile-image">
-<img src="profile-pic.jpg" alt="Azi Paybarah" style="width: 100%; height: 100%; object-fit: cover;">
-</div>
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--subtle-line);
+            border: 3px solid var(--woodblock-dark);
+            box-shadow: 8px 8px 0 var(--woodblock-accent);
+            position: relative;
+            overflow: hidden;
+        }
 
-        /* Accomplishments */
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .accomplishments {
             margin: 4rem 0;
             animation: fadeIn 1s ease-out 0.6s both;
@@ -206,7 +213,6 @@
             font-weight: 600;
         }
 
-        /* Featured Work */
         .featured-work {
             margin: 4rem 0;
             animation: fadeIn 1s ease-out 0.8s both;
@@ -267,7 +273,6 @@
             color: var(--ink);
         }
 
-        /* Footer */
         footer {
             margin-top: 6rem;
             padding: 3rem 0;
@@ -317,7 +322,6 @@
             color: var(--woodblock-accent);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -331,10 +335,6 @@
                 font-size: 1.8rem;
             }
 
-            .skill-grid {
-                grid-template-columns: 1fr;
-            }
-
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -345,7 +345,6 @@
             }
         }
 
-        /* Decorative elements */
         .decorative-mark {
             display: inline-block;
             width: 60px;
@@ -358,9 +357,7 @@
 <body>
     <div class="container">
         <header>
-            <!-- NYRB-style illustration logo -->
             <svg class="logo-illustration" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
-                <!-- Woodblock-style portrait illustration -->
                 <defs>
                     <style>
                         .logo-stroke { fill: none; stroke: #4a3728; stroke-width: 2; stroke-linecap: round; }
@@ -368,35 +365,19 @@
                         .logo-accent { fill: #8b6f47; }
                     </style>
                 </defs>
-                
-                <!-- Background circle -->
                 <circle cx="60" cy="60" r="58" fill="#fdfcf7" stroke="#4a3728" stroke-width="2"/>
-                
-                <!-- Stylized journalist figure - head and shoulders -->
                 <ellipse cx="60" cy="48" rx="18" ry="22" class="logo-fill"/>
-                
-                <!-- Hair detail -->
                 <path d="M 42 40 Q 45 32, 50 35 M 48 35 Q 52 28, 56 32 M 54 32 Q 60 26, 64 32 M 62 32 Q 68 28, 72 35 M 70 35 Q 74 32, 78 40" class="logo-stroke"/>
-                
-                <!-- Shoulders/collar -->
                 <path d="M 35 65 Q 40 60, 45 62 L 48 70 M 82 65 Q 77 60, 72 62 L 69 70" class="logo-fill"/>
-                
-                <!-- Notebook/notepad in hand -->
                 <rect x="30" y="75" width="20" height="28" fill="#fdfcf7" stroke="#4a3728" stroke-width="2" rx="1"/>
                 <line x1="33" y1="80" x2="47" y2="80" class="logo-stroke" stroke-width="1"/>
                 <line x1="33" y1="85" x2="47" y2="85" class="logo-stroke" stroke-width="1"/>
                 <line x1="33" y1="90" x2="44" y2="90" class="logo-stroke" stroke-width="1"/>
                 <line x1="33" y1="95" x2="47" y2="95" class="logo-stroke" stroke-width="1"/>
-                
-                <!-- Pen/pencil -->
                 <line x1="68" y1="75" x2="76" y2="100" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
                 <polygon points="76,100 77,103 75,103" class="logo-fill"/>
-                
-                <!-- Magnifying glass (investigation symbol) -->
                 <circle cx="88" cy="82" r="10" fill="none" stroke="#8b6f47" stroke-width="2"/>
                 <line x1="95" y1="89" x2="102" y2="96" stroke="#8b6f47" stroke-width="3" stroke-linecap="round"/>
-                
-                <!-- Decorative hatching for depth -->
                 <g opacity="0.3">
                     <line x1="45" y1="52" x2="50" y2="52" class="logo-stroke" stroke-width="0.5"/>
                     <line x1="46" y1="56" x2="51" y2="56" class="logo-stroke" stroke-width="0.5"/>
@@ -414,7 +395,7 @@
                 <p>I'm reporting for The Washington Post, and have previously reported for The New York Times, Politico New York, WNYC and the New York Observer.</p>
             </div>
             <div class="profile-image">
-                <!-- Replace this div with: <img src="your-profile-photo.jpg" alt="Azi Paybarah" style="width: 100%; height: 100%; object-fit: cover;"> -->
+                <img src="profile-pic.jpg" alt="Azi Paybarah">
             </div>
         </section>
 
@@ -447,9 +428,73 @@
                     <div class="date">October 24, 2024</div>
                     <h3>See how your neighborhood is giving to Trump and Harris</h3>
                 </a>
+                <a href="https://x.com/Azi/status/1850223718200648053" class="work-item" target="_blank">
+                    <div class="date">October 26, 2024</div>
+                    <h3>Kari Lake met with RFK, Jr. supporters, deleted parts of video about weather manipulation</h3>
+                </a>
                 <a href="https://www.washingtonpost.com/elections/interactive/2024/republican-campaign-ads-immigration-border-security/" class="work-item" target="_blank">
                     <div class="date">August 18, 2024</div>
                     <h3>Republicans flood TV with misleading ads about immigration, border</h3>
+                </a>
+                <a href="https://www.washingtonpost.com/elections/2024/02/09/taylor-swift-maga-conspiracy-superbowl/" class="work-item" target="_blank">
+                    <div class="date">February 9, 2024</div>
+                    <h3>How the MAGA-fed Taylor Swift conspiracy theories caught fire</h3>
+                </a>
+                <a href="https://www.washingtonpost.com/nation/2023/04/11/journalists-covering-louisville-shooting/" class="work-item" target="_blank">
+                    <div class="date">April 11, 2023</div>
+                    <h3>Local journalists covering shootings share their pain on air</h3>
+                </a>
+                <a href="https://www.washingtonpost.com/politics/2022/12/31/george-santos-deception-house/" class="work-item" target="_blank">
+                    <div class="date">December 31, 2022</div>
+                    <h3>The talented Mr. Santos: A congressman-elect's unraveling web of deception</h3>
+                </a>
+                <a href="https://www.nytimes.com/2021/08/07/business/albany-times-union-cuomo.html" class="work-item" target="_blank">
+                    <div class="date">August 7, 2021</div>
+                    <h3>'Ugh': Life at Andrew Cuomo's Hometown Newspaper</h3>
+                </a>
+                <a href="https://www.nytimes.com/2021/01/24/nyregion/giuliani-election-fraud.html?timespastHighlight=paybarah" class="work-item" target="_blank">
+                    <div class="date">January 24, 2021</div>
+                    <h3>Where Giuliani Still Routinely Offers False Claims of Election Fraud</h3>
+                </a>
+                <a href="https://www.nytimes.com/2021/01/06/us/politics/trump-riot-dc-capitol-photos.html?timespastHighlight=paybarah" class="work-item" target="_blank">
+                    <div class="date">January 6, 2021</div>
+                    <h3>Stunning Images as a Mob Storms the U.S. Capitol</h3>
+                </a>
+                <a href="https://www.nytimes.com/interactive/2020/05/16/nyregion/nyc-coronavirus-moving-leaving.html" class="work-item" target="_blank">
+                    <div class="date">May 16, 2020</div>
+                    <h3>Where New Yorkers Moved to Escape Coronavirus</h3>
+                </a>
+                <a href="https://www.nytimes.com/2019/02/11/nyregion/bill-oreilly-police-athletic-league.html" class="work-item" target="_blank">
+                    <div class="date">February 11, 2019</div>
+                    <h3>Bill O'Reilly's Invitation to Speak at a Police Charity Event in New York Ignites #MeToo Protest</h3>
+                </a>
+                <a href="https://www.politico.com/states/new-york/city-hall/story/2016/07/giuliani-i-spied-on-mosques-to-keep-track-of-good-ones-and-the-bad-ones-104092" class="work-item" target="_blank">
+                    <div class="date">July 18, 2016</div>
+                    <h3>Giuliani: I surveilled mosques to 'keep track of good ones and the bad ones'</h3>
+                </a>
+                <a href="https://www.politico.com/states/new-york/city-hall/story/2014/12/at-private-meeting-union-head-tells-officers-to-use-extreme-discretion-018392" class="work-item" target="_blank">
+                    <div class="date">December 23, 2014</div>
+                    <h3>At private meeting, union head tells officers to use 'extreme discretion'</h3>
+                </a>
+                <a href="https://www.politico.com/states/new-york/city-hall/story/2012/11/wreckage-and-a-messy-bloomberg-media-hit-in-rockaway-beach-000000" class="work-item" target="_blank">
+                    <div class="date">November 2, 2012</div>
+                    <h3>Wreckage and a messy Bloomberg media hit in Rockaway Beach</h3>
+                </a>
+                <a href="https://observer.com/2009/08/bloombergs-local-ad-buyer-publisher-tom-allon/" class="work-item" target="_blank">
+                    <div class="date">August 11, 2009</div>
+                    <h3>Bloomberg's Local Ad Buyer: Publisher Tom Allon</h3>
+                </a>
+                <a href="https://observer.com/2008/04/for-the-record-andrew-cuomo-doesnt-keep-a-schedule/" class="work-item" target="_blank">
+                    <div class="date">April 9, 2008</div>
+                    <h3>For the Record: Andrew Cuomo Doesn't Keep a Schedule</h3>
+                </a>
+                <a href="https://observer.com/2008/01/does-kevin-sheekey-have-your-attention/" class="work-item" target="_blank">
+                    <div class="date">January 8, 2008</div>
+                    <h3>Does Kevin Sheekey Have Your Attention?</h3>
+                </a>
+                <a href="https://observer.com/2007/12/one-doctoroff-story-two-covers/" class="work-item" target="_blank">
+                    <div class="date">December 10, 2007</div>
+                    <h3>One Doctoroff Story, Two Covers</h3>
                 </a>
             </div>
         </section>
@@ -461,7 +506,7 @@
                     <div class="decorative-mark"></div>
                     <div class="contact-links">
                         <a href="https://twitter.com/Azi" target="_blank">Twitter/X @Azi</a>
-                        <a href="/cdn-cgi/l/email-protection#472428293326243307263d2e37263e252635262f6924282a">Email</a>
+                        <a href="mailto:contact@azipaybarah.com">Email</a>
                         <a href="https://www.washingtonpost.com/people/azi-paybarah/" target="_blank">Washington Post Archive</a>
                         <a href="https://www.nytimes.com/by/azi-paybarah" target="_blank">New York Times Archive</a>
                     </div>
@@ -480,16 +525,8 @@
         </footer>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-        
-        // Add subtle parallax effect on scroll
-        let ticking = false;
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const scrolled = window.pageYOffset;
-                    const header = document.querySelector('header');
-                    if (header) {
-                        header.style.transform = `translateY(${scrolled * 0.3}px)`;
-             
+    </script>
+</body>
+</html>
