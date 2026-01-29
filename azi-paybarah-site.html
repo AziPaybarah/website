@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azi Paybarah — Journalist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --ink: #1a1a1a;
+            --paper: #fdfcf7;
+            --woodblock-dark: #4a3728;
+            --woodblock-accent: #8b6f47;
+            --subtle-line: #d4c5b0;
+            --highlight: #c85a3e;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Woodblock texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,0,0,0.01) 2px,
+                    rgba(0,0,0,0.01) 4px
+                );
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Header with woodblock border */
+        header {
+            padding: 3rem 0 2rem;
+            border-bottom: 4px solid var(--woodblock-dark);
+            margin-bottom: 3rem;
+            position: relative;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .logo-illustration {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out 0.3s both;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--woodblock-accent);
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--woodblock-dark);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            color: var(--woodblock-accent);
+            font-style: italic;
+            letter-spacing: 0.03em;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text h1 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--woodblock-dark);
+        }
+
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: var(--subtle-line);
+            border: 3px solid var(--woodblock-dark);
+            box-shadow: 8px 8px 0 var(--woodblock-accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-image::after {
+            content: 'PHOTO';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            color: var(--woodblock-accent);
+        }
+
+        /* Skills Section */
+        .skills {
+            margin: 4rem 0;
+            padding: 3rem 0;
+            border-top: 2px solid var(--subtle-line);
+            border-bottom: 2px solid var(--subtle-line);
+            animation: fadeIn 1s ease-out 0.4s both;
+        }
+
+        .section-title {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--woodblock-accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .skill-item::before {
+            content: '■';
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+            font-size: 1.2rem;
+        }
+
+        .skill-item h3 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.3rem;
+            color: var(--ink);
+        }
+
+        .skill-item p {
+            font-size: 0.95rem;
+            color: var(--woodblock-dark);
+            opacity: 0.9;
+        }
+
+        /* Accomplishments */
+        .accomplishments {
+            margin: 4rem 0;
+            animation: fadeIn 1s ease-out 0.6s both;
+        }
+
+        .accomplishment-list {
+            list-style: none;
+        }
+
+        .accomplishment-list li {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--subtle-line);
+            font-size: 1.05rem;
+            position: relative;
+            padding-left: 3rem;
+            transition: all 0.3s ease;
+        }
+
+        .accomplishment-list li:hover {
+            padding-left: 3.5rem;
+            color: var(--highlight);
+        }
+
+        .accomplishment-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0.5rem;
+            color: var(--woodblock-accent);
+            font-size: 1.3rem;
+            transition: all 0.3s ease;
+        }
+
+        .accomplishment-list li:hover::before {
+            color: var(--highlight);
+            left: 1rem;
+        }
+
+        .accomplishment-list li strong {
+            color: var(--woodblock-dark);
+            font-weight: 600;
+        }
+
+        /* Featured Work */
+        .featured-work {
+            margin: 4rem 0;
+            animation: fadeIn 1s ease-out 0.8s both;
+        }
+
+        .work-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .work-item {
+            display: block;
+            padding: 1.5rem;
+            border: 2px solid var(--subtle-line);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--highlight);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: bottom;
+        }
+
+        .work-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .work-item:hover {
+            border-color: var(--woodblock-accent);
+            transform: translateX(8px);
+            box-shadow: -8px 8px 0 var(--subtle-line);
+        }
+
+        .work-item .date {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 0.85rem;
+            color: var(--woodblock-accent);
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-item h3 {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--ink);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 6rem;
+            padding: 3rem 0;
+            border-top: 4px solid var(--woodblock-dark);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--woodblock-accent);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-links a {
+            display: block;
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1rem;
+            color: var(--woodblock-dark);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .contact-links a:hover {
+            color: var(--highlight);
+            border-bottom-color: var(--highlight);
+            padding-left: 0.5rem;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--subtle-line);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--woodblock-accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
+                font-size: 2.5rem;
+            }
+
+            .hero-text h1 {
+                font-size: 1.8rem;
+            }
+
+            .skill-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Decorative elements */
+        .decorative-mark {
+            display: inline-block;
+            width: 60px;
+            height: 3px;
+            background: var(--highlight);
+            margin: 2rem 0 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- NYRB-style illustration logo -->
+            <svg class="logo-illustration" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+                <!-- Woodblock-style portrait illustration -->
+                <defs>
+                    <style>
+                        .logo-stroke { fill: none; stroke: #4a3728; stroke-width: 2; stroke-linecap: round; }
+                        .logo-fill { fill: #4a3728; }
+                        .logo-accent { fill: #8b6f47; }
+                    </style>
+                </defs>
+                
+                <!-- Background circle -->
+                <circle cx="60" cy="60" r="58" fill="#fdfcf7" stroke="#4a3728" stroke-width="2"/>
+                
+                <!-- Stylized journalist figure - head and shoulders -->
+                <ellipse cx="60" cy="48" rx="18" ry="22" class="logo-fill"/>
+                
+                <!-- Hair detail -->
+                <path d="M 42 40 Q 45 32, 50 35 M 48 35 Q 52 28, 56 32 M 54 32 Q 60 26, 64 32 M 62 32 Q 68 28, 72 35 M 70 35 Q 74 32, 78 40" class="logo-stroke"/>
+                
+                <!-- Shoulders/collar -->
+                <path d="M 35 65 Q 40 60, 45 62 L 48 70 M 82 65 Q 77 60, 72 62 L 69 70" class="logo-fill"/>
+                
+                <!-- Notebook/notepad in hand -->
+                <rect x="30" y="75" width="20" height="28" fill="#fdfcf7" stroke="#4a3728" stroke-width="2" rx="1"/>
+                <line x1="33" y1="80" x2="47" y2="80" class="logo-stroke" stroke-width="1"/>
+                <line x1="33" y1="85" x2="47" y2="85" class="logo-stroke" stroke-width="1"/>
+                <line x1="33" y1="90" x2="44" y2="90" class="logo-stroke" stroke-width="1"/>
+                <line x1="33" y1="95" x2="47" y2="95" class="logo-stroke" stroke-width="1"/>
+                
+                <!-- Pen/pencil -->
+                <line x1="68" y1="75" x2="76" y2="100" stroke="#4a3728" stroke-width="2.5" stroke-linecap="round"/>
+                <polygon points="76,100 77,103 75,103" class="logo-fill"/>
+                
+                <!-- Magnifying glass (investigation symbol) -->
+                <circle cx="88" cy="82" r="10" fill="none" stroke="#8b6f47" stroke-width="2"/>
+                <line x1="95" y1="89" x2="102" y2="96" stroke="#8b6f47" stroke-width="3" stroke-linecap="round"/>
+                
+                <!-- Decorative hatching for depth -->
+                <g opacity="0.3">
+                    <line x1="45" y1="52" x2="50" y2="52" class="logo-stroke" stroke-width="0.5"/>
+                    <line x1="46" y1="56" x2="51" y2="56" class="logo-stroke" stroke-width="0.5"/>
+                    <line x1="67" y1="52" x2="72" y2="52" class="logo-stroke" stroke-width="0.5"/>
+                    <line x1="66" y1="56" x2="71" y2="56" class="logo-stroke" stroke-width="0.5"/>
+                </g>
+            </svg>
+            <div class="logo">Azi Paybarah</div>
+            <div class="tagline">Journalist</div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Reporter with experience covering politics, policy, and accountability journalism</h1>
+                <p>I've reported for The Washington Post, The New York Times, and other leading publications, with a growing interest in digital investigation, visual verification, and understanding how narratives spread through media ecosystems.</p>
+            </div>
+            <div class="profile-image">
+                <!-- Replace this div with: <img src="your-profile-photo.jpg" alt="Azi Paybarah" style="width: 100%; height: 100%; object-fit: cover;"> -->
+            </div>
+        </section>
+
+        <section class="skills">
+            <h2 class="section-title">Skills & Interests</h2>
+            <div class="skill-grid">
+                <div class="skill-item">
+                    <h3>Digital Investigation</h3>
+                    <p>Developing research techniques that combine data analysis and open-source methods to verify claims and uncover connections</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Visual Verification</h3>
+                    <p>Building skills in authenticating images, videos, and digital content to identify and counter misinformation</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Narrative Tracing</h3>
+                    <p>Learning to track how stories and claims spread across media platforms to understand information flows</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="accomplishments">
+            <h2 class="section-title">Recognition & Accomplishments</h2>
+            <div class="decorative-mark"></div>
+            <ul class="accomplishment-list">
+                <li><strong>Pulitzer Prize</strong> — Part of The New York Times team recognized for public service coverage of the COVID-19 pandemic (2021)</li>
+                <li><strong>Knight-Wallace Fellow</strong> — University of Michigan's prestigious journalism fellowship program (2017–2018)</li>
+                <li><strong>Published investigative work</strong> — The Washington Post, The New York Times, Politico, and other leading outlets</li>
+                <li><strong>Politics & Policy Expert</strong> — Extensive coverage of federal government, electoral politics, and accountability reporting</li>
+            </ul>
+        </section>
+
+        <section class="featured-work">
+            <h2 class="section-title">Select Recent Work</h2>
+            <div class="decorative-mark"></div>
+            <div class="work-grid">
+                <a href="https://www.washingtonpost.com/politics/interactive/2025/elon-musk-x-posts-influencers-trump-policy/" class="work-item" target="_blank">
+                    <div class="date">April 14, 2025</div>
+                    <h3>Elon Musk gets government policy ideas from X. Here's how.</h3>
+                </a>
+                <a href="https://www.washingtonpost.com/politics/interactive/2025/trump-administration-signal-chat-leak-response/" class="work-item" target="_blank">
+                    <div class="date">March 29, 2025</div>
+                    <h3>How the Trump administration has downplayed the Signal chat scandal</h3>
+                </a>
+                <a href="https://www.washingtonpost.com/politics/2025/01/31/federal-agencies-websites-trump/" class="work-item" target="_blank">
+                    <div class="date">January 31, 2025</div>
+                    <h3>How federal agencies have already changed their websites under Trump</h3>
+                </a>
+                <a href="https://www.washingtonpost.com/elections/interactive/2024/trump-harris-donors-zip-code-map/" class="work-item" target="_blank">
+                    <div class="date">October 24, 2024</div>
+                    <h3>See how your neighborhood is giving to Trump and Harris</h3>
+                </a>
+                <a href="https://www.washingtonpost.com/elections/interactive/2024/republican-campaign-ads-immigration-border-security/" class="work-item" target="_blank">
+                    <div class="date">August 18, 2024</div>
+                    <h3>Republicans flood TV with misleading ads about immigration, border</h3>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <div>
+                    <h2 class="section-title">Connect</h2>
+                    <div class="decorative-mark"></div>
+                    <div class="contact-links">
+                        <a href="https://twitter.com/Azi" target="_blank">Twitter/X @Azi</a>
+                        <a href="/cdn-cgi/l/email-protection#472428293326243307263d2e37263e252635262f6924282a">Email</a>
+                        <a href="https://www.washingtonpost.com/people/azi-paybarah/" target="_blank">Washington Post Archive</a>
+                        <a href="https://www.nytimes.com/by/azi-paybarah" target="_blank">New York Times Archive</a>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="section-title">About This Site</h2>
+                    <div class="decorative-mark"></div>
+                    <p style="font-size: 0.95rem; line-height: 1.7; color: var(--woodblock-dark);">
+                        This site showcases work in accountability journalism, political reporting, and investigative research. For story tips, collaboration inquiries, or media requests, please reach out via email or social media.
+                    </p>
+                </div>
+            </div>
+            <div class="copyright">
+                © <span id="year"></span> Azi Paybarah. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Add subtle parallax effect on scroll
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const header = document.querySelector('header');
+                    if (header) {
+                        header.style.transform = `translateY(${scrolled * 0.3}px)`;
+             
